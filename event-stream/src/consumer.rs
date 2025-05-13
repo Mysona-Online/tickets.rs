@@ -12,7 +12,7 @@ impl Consumer {
         let consumer: StreamConsumer = ClientConfig::new()
             .set("bootstrap.servers", brokers.join(","))
             .set("group.id", group_id)
-            .set("protocol.version", "3.7")
+            .set("api.version.request", "true")
             .create()?;
 
         consumer.subscribe(&[topic.as_str()])?;

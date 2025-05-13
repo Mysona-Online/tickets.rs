@@ -16,7 +16,7 @@ impl Publisher {
     pub fn new(brokers: Vec<String>, topic: String) -> Result<Self> {
         let producer: BaseProducer = ClientConfig::new()
             .set("bootstrap.servers", brokers.join(","))
-            .set("protocol.version", "3.7")
+            .set("api.version.request", "true")
             .create()?;
 
         Ok(Self { 
